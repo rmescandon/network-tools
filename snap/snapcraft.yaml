@@ -1,0 +1,28 @@
+name: network-tools 
+version: 0.1-1 
+summary: Basic network tools like curl, wget or telnet
+description: |
+  Snap including basic network operations commands
+  curl, wget, telnet
+
+grade: stable
+confinement: strict
+
+apps:
+  telnet:
+    command: usr/bin/telnet.netkit
+    plugs: [network]
+  curl:
+    command: usr/bin/curl
+    plugs: [network]
+  wget:
+    command: usr/bin/wget
+    plugs: [network]
+
+parts:
+  tools:
+    plugin: nil
+    stage-packages:
+    - curl
+    - wget
+    - telnet
